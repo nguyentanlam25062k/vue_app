@@ -1,0 +1,149 @@
+.v-2
+  &.btn
+    width: max-content
+    padding: 13px 48px
+    border-radius: 23px
+    line-height: 17px
+    border-width: 2px
+    border-style: solid
+    outline: none
+    color: #ffffff
+    background-color: $primary-color
+    text-align: center
+    transition: all .2s ease
+    cursor: pointer
+
+    &.btn-primary
+      color: #ffffff
+      background-color: $primary-color
+      border-color: #126ab7
+      &:not(.disable):hover
+        color: #126ab7
+        background-color: #fff
+        border-color: #126AB7
+
+    &.btn-secondary
+      color: $smart-gray-500
+      background-color: #ffffff
+      border-color: $smart-gray-300
+      &:not(.disable):hover
+        color: $smart-gray-500
+        background-color: $smart-gray-100
+        border-color: $smart-gray-300
+
+    &.disable
+      color: $smart-gray-300
+      background-color: #fff
+      border-color: $smart-gray-100
+      cursor: not-allowed
+
+  &.btn-sm
+    padding: 7px 12px
+    border-radius: 17px
+    line-height: 17px
+    border-width: 2px
+    border-style: solid
+    outline: none
+    background-color: red
+    transition: all .2s ease
+    cursor: pointer
+    > p
+      overflow: hidden
+      white-space: nowrap
+
+    &.btn-primary
+      color: $primary-color
+      background-color: #ffffff
+      border-color: $smart-blue-300
+      &:not(.disable):hover
+        color: $primary-color
+        background-color: $smart-blue-300
+        border-color: $smart-blue-300
+
+    &.btn-secondary
+      color: $smart-gray-500
+      background-color: #ffffff
+      border-color: $smart-gray-300
+      &:not(.disable):hover
+        color: $smart-gray-500
+        background-color: $smart-gray-100
+        border-color: $smart-gray-300
+
+    &.disable
+      color: $smart-gray-300
+      background-color: #fff
+      border-color: $smart-gray-100
+      cursor: not-allowed
+
+  &.btn-link
+    font-size: 14px
+    line-height: 17px
+    transition: all .2s ease
+    color: $primary-color
+    &:hover
+      text-decoration: none
+    &.btn-primary
+      color: $primary-color
+    &.btn-secondary
+      color: $smart-gray-500
+
+    &.disable
+      color: $smart-gray-300
+      text-decoration: none
+      cursor: not-allowed
+
+  &.icon
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 34px
+    height: 34px
+    border-radius: 100%
+    border: 2px solid $smart-gray-300
+    background-color: #fff
+    transition: all .2s ease
+    cursor: pointer
+    font-size: 10px
+    color: #101b21
+    &:not(.disable):hover
+      background-color: $smart-gray-100
+    &.disable
+      border-color: $smart-gray-100
+      color: $smart-gray-300
+      cursor: not-allowed
+      pointer-events: none
+
+@include sp
+  .v-2
+    &.btn
+      width: 100%
+      padding: 13px 30px
+    &.btn-sm
+      width: 100%
+      padding-left: 30px
+      padding-right: 30px
+    &.group-btn-row
+      display: flex
+      justify-content: space-between
+      .btn
+        width: calc(50% - 6px)
+      .btn-sm
+        width: calc(50% - 3px)
+    &.group-btn-col
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-direction: column
+      .btn, .btn-sm
+        width: max-content
+        &:first-child
+          margin-bottom: 15px
+      .btn-sm
+        padding-left: 30px
+        padding-right: 30px
+    &.group-btn-link
+      display: flex
+      align-items: center
+      .btn-link
+        flex-shrink: 0
+        margin-right: 20px

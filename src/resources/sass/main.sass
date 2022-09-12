@@ -1,0 +1,153 @@
+@import "variable.sass"
+@import "mixin.sass"
+//
+*
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+
+body
+  background-color: $theme-background-color
+  margin: 0
+  color: $text-color
+
+ul
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+/* Struct */
+.wrapper
+  width: 100%
+  min-height: 100vh
+  button, [type=button], [type=reset], [type=submit], [role=button]
+    cursor: pointer
+    color: #FFFFFF
+
+.container
+  max-width: 992px
+  margin: 0 auto
+  //--- edit by Lam ---//
+  // padding: 0 10px // by La // sp margin: 0 10px --- pc padding: 0
+  //------//
+
+  @include sp
+    margin: 0 10px
+
+.body
+  position: relative
+  display: flex
+  width: 100%
+  min-height: 90vh
+  font-size: $font-size
+  font-family: $font-hiragino
+  align-items: center
+  justify-content: center
+
+// start house-info-card
+
+.list-info-body
+  .list-info-body-item
+    width: 100%
+    min-height: 160px
+    display: flex
+    flex-direction: row
+    align-items: stretch
+    border-top: solid 5px #0972BF
+    border-radius: 5px
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px
+    margin-bottom: 15px
+    padding: 0 15px
+    position: relative
+    &.bordred
+      box-shadow: unset
+      border-radius: unset
+      border-right: 1px solid #BDC8CE
+      border-bottom: 1px solid #BDC8CE
+      border-left: 1px solid #BDC8CE
+    .list-info-body-item-content
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      min-height: inherit
+      .list-info-body-item-info-content-header
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+
+.content-column
+  .form-item
+    .form-item-wrapper
+      .form-item-body
+        color: #2B2B2B
+
+.button
+  background-color: #0972BF
+  color: #FFFFFF
+  padding: 8px 10px
+  border-radius: 5px
+  text-align: center
+  font-weight: bold
+  min-width: 192px
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+
+// end house-info-card
+
+.d-flex
+    display: flex
+
+.flex-column
+  display: flex
+  flex-direction: column
+
+.w-10
+    width: 10%
+
+.bold-text
+  font-weight: bold
+
+.content-line
+  height: 1px
+  margin: 61px 0 30px
+
+.badge
+  display: inline-block
+  padding: 2px 5px
+  border-radius: 5px
+  font-size: 10px
+  margin-right: 10px
+  text-align: center
+
+.badge-required
+  @extend .badge
+  color: #FFFFFF
+  font-weight: bold
+  min-width: 40px
+
+.badge-new
+  @extend .badge-required
+  min-height: 10px
+  background-color: #ca2c36
+
+.rotate-icon
+  display: inline-block
+  transform: rotate(180deg)
+
+.f-s-12
+  font-size: 12px
+
+.f-s-10
+  font-size: 10px
+
+.v-application ul
+  padding-left: unset
+
+@media screen and (max-width: 768px)
+  .container
+    margin: 0 auto
+
+@import "_button.sass"
