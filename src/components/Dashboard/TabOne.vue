@@ -172,29 +172,13 @@
             <v-calendar
             :now="today"
             :value="today"
-            :start="'2022-10-08'"
-            :end="'2022-10-18'"
+            :start="starDate"
+            :end="endDate"
+            :events="events"
             :weekday-format="dayFormat"
             color="primary"
             type="custom-weekly"
             >
-                <template v-slot:day="{ present, past, date }">
-                    <v-layout
-                    fill-height
-                    >
-                    <template v-if="past && tracked[date]">
-                        <v-sheet
-                        v-for="(percent, i) in tracked[date]"
-                        :key="i"
-                        :title="category[i]"
-                        :color="colors[i]"
-                        :width="`${percent}%`"
-                        height="100%"
-                        tile
-                        ></v-sheet>
-                    </template>
-                    </v-layout>
-                </template>
             </v-calendar>
         </div>
     </div>
@@ -210,21 +194,34 @@ export default {
     },
     data() {
         return {
-            today: '2019-01-10',
+            today: '2022-10-10',
             tracked: {
-            '2019-01-09': [23, 45, 10],
-            '2019-01-08': [10],
-            '2019-01-07': [0, 78, 5],
-            '2019-01-06': [0, 0, 50],
-            '2019-01-05': [0, 10, 23],
-            '2019-01-04': [2, 90],
-            '2019-01-03': [10, 32],
-            '2019-01-02': [80, 10, 10],
-            '2019-01-01': [20, 25, 10]
+            '2022-10-09': [23, 45, 10],
+            '2022-10-08': [10],
+            '2022-10-07': [0, 78, 5],
+            '2022-10-06': [0, 0, 50],
+            '2022-10-05': [0, 10, 23],
+            '2022-10-04': [2, 90],
+            '2022-10-03': [10, 32],
+            '2022-10-02': [80, 10, 10],
+            '2022-10-01': [20, 25, 10]
             },
+            events: [],
             colors: ['#1867c0', '#fb8c00', '#000000'],
+            texts: ['lorem 1', 'lorem 2', 'lorem 3'],
             category: ['Development', 'Meetings', 'Slacking']
         }
+    },
+    created() {
+        this.getEvents();
+    },
+    computed: {
+        starDate() {
+            return '2022-10-08';
+        },
+        endDate() {
+            return '2022-10-18';
+        },
     },
     methods: {
         dayFormat({ weekday }) {
@@ -238,6 +235,30 @@ export default {
                 6: '土曜',
             }
             return dayMap[weekday];
+        },
+        getEvents() {
+            const {starDate, endDate, colors, texts} = this;
+            const events = [];
+
+            function getRandomElement(count) {
+                const elements = [];
+                for(let i = 0; i < count; i++) {
+                    elements.push(texts[Math.floor(Math.random() * 3)]);
+                }
+                return elements;
+            }
+
+            for (let i = new Date(starDate); i <= new Date(endDate); i.setDate(i.getDate() + 1)) {
+                events.push({
+                    start: new Date(starDate).toISOString().substring(0,10),
+                    startTime: new Date(starDate).toISOString().substring(0,10),
+                    color: colors[Math.floor(Math.random() * 3)],
+                    // name: texts[Math.floor(Math.random() * 3)],
+                    name: getRandomElement(Math.floor(Math.random() * 3)),
+                })
+            }
+            console.log(JSON.parse(JSON.stringify(events)));
+            this.events = events;
         }
     }
 }
