@@ -1,7 +1,7 @@
 <template>
     <div class="db-tab-heading-pc-item"
          :class="{active: isActive}"
-         @click="() => {onHeadingTabClick(heading)}"
+         @click="() => { onHeadingTabClick(heading) }"
     >
         <div class="db-box-blue">
             <div class="db-box-blue-row">

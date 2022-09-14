@@ -129,16 +129,15 @@ export default {
             clearInterval(this.timer);
             this.playSlide();
         },
-
-        handleHeadingTabClick(tabSelected) {
-            this.currentTab = tabSelected;
+        handleHeadingTabClick(index) {
+            this.currentTab = index;
         },
-        handleHeadingTabSPClick(tabSelected) {
-            if(this.currentTab === tabSelected) {
+        handleHeadingTabSPClick(index) {
+            if(this.currentTab === index) {
                 this.currentTab = null;
                 return;
             }
-            this.currentTab = tabSelected;
+            this.currentTab = index;
         },
     },
 

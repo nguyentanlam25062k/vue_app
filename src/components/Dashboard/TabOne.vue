@@ -170,97 +170,159 @@
         <div class="dashboard-calendar v-2">
             <div class="db-calendar-heading">カレンダー 2021年1月10日〜2021年1月30日</div>
             <v-calendar
-            :now="today"
-            :value="today"
-            :start="starDate"
-            :end="endDate"
-            :events="events"
-            :weekday-format="dayFormat"
-            color="primary"
-            type="custom-weekly"
+                :now="today"
+                :value="today"
+                :start="starDate"
+                :end="endDate"
+                :events="events"
+                :event-height="null"
+                :event-color="colorFormat"
+                :weekday-format="dayFormat"
+                @click:event="showEvent"
+                @click:day="viewDay"
+                type="custom-weekly"
             >
+                <template v-slot:event="{ event: { startTime, endTime, title, title2, isWarning, type } }">
+                    <div class="db-appointment"
+                        :class="type"
+                    >
+                        <div class="db-appointment-btn">
+                            <div class="db-appointment-btn-span">受付</div>
+                            <div class="db-appointment-btn-text">{{ title }}</div>
+                        </div>
+                        <div class="db-appointment-content">
+                            <div class="db-appointment-content-icon">
+                                <v-icon>info</v-icon>
+                            </div>
+                            <div class="db-appointment-content-link">
+                                <div class="db-text">{{ startTime }}-{{ endTime }}</div>
+                                <div class="db-text">{{ title }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </v-calendar>
         </div>
+        <CalendarModal
+            :isActiveModal="isActiveModal"
+            :event="event"
+            :onCloseModal="handleCloseModal"
+        />
     </div>
 </template>
 
 <script>
+import CalendarModal from './CalendarModal.vue';
+
+const convertDatetoTime = (date) => {
+    return new Date(date).toISOString().substring(0, 10);
+}
+
+const getTime = () => {
+    let h = Math.ceil(Math.random() * 24);
+    let m = Math.ceil(Math.random() * 60);
+    h = h < 10 ? '0' + h : h;
+    m = m < 10 ? '0' + m : m;
+    return h + ':' + m;
+}
+
+const randomNumber = (max) => {
+    return Math.floor(Math.random() * max);
+}
+
+
 export default {
-    name: 'TabOne',
+    name: "TabOne",
+    components: {
+        'CalendarModal': CalendarModal,
+    },
     props: {
         heading: Number,
-        isActive: Boolean,
         onHeadingTabSPClick: Function
     },
     data() {
         return {
-            today: '2022-10-10',
+            today: "2022-10-10",
             tracked: {
-            '2022-10-09': [23, 45, 10],
-            '2022-10-08': [10],
-            '2022-10-07': [0, 78, 5],
-            '2022-10-06': [0, 0, 50],
-            '2022-10-05': [0, 10, 23],
-            '2022-10-04': [2, 90],
-            '2022-10-03': [10, 32],
-            '2022-10-02': [80, 10, 10],
-            '2022-10-01': [20, 25, 10]
+                "2022-10-09": [23, 45, 10],
+                "2022-10-08": [10],
+                "2022-10-07": [0, 78, 5],
+                "2022-10-06": [0, 0, 50],
+                "2022-10-05": [0, 10, 23],
+                "2022-10-04": [2, 90],
+                "2022-10-03": [10, 32],
+                "2022-10-02": [80, 10, 10],
+                "2022-10-01": [20, 25, 10]
             },
+            isActiveModal: false,
+            event: null,
             events: [],
-            colors: ['#1867c0', '#fb8c00', '#000000'],
-            texts: ['lorem 1', 'lorem 2', 'lorem 3'],
-            category: ['Development', 'Meetings', 'Slacking']
-        }
+            colors: ["#1867c0", "#fb8c00", "#000000"],
+            texts: ["lorem 1", "lorem 2", "lorem 3"],
+            types: ['red', 'green'],
+            boleans: [false, true],
+            category: ["Development", "Meetings", "Slacking"]
+        };
     },
     created() {
         this.getEvents();
     },
     computed: {
         starDate() {
-            return '2022-10-08';
+            return "2022-10-08";
         },
         endDate() {
-            return '2022-10-18';
+            return "2022-10-18";
         },
     },
     methods: {
         dayFormat({ weekday }) {
             const dayMap = {
-                0: '日曜',
-                1: '月曜',
-                2: '火曜',
-                3: '水曜',
-                4: '木曜',
-                5: '金曜',
-                6: '土曜',
-            }
+                0: "日曜",
+                1: "月曜",
+                2: "火曜",
+                3: "水曜",
+                4: "木曜",
+                5: "金曜",
+                6: "土曜",
+            };
             return dayMap[weekday];
         },
+        colorFormat(e) {
+            return e.color;
+        },
         getEvents() {
-            const {starDate, endDate, colors, texts} = this;
+            const { starDate, endDate, colors, texts, types, boleans } = this;
             const events = [];
-
-            function getRandomElement(count) {
-                const elements = [];
-                for(let i = 0; i < count; i++) {
-                    elements.push(texts[Math.floor(Math.random() * 3)]);
-                }
-                return elements;
-            }
-
+            
             for (let i = new Date(starDate); i <= new Date(endDate); i.setDate(i.getDate() + 1)) {
                 events.push({
-                    start: new Date(starDate).toISOString().substring(0,10),
-                    startTime: new Date(starDate).toISOString().substring(0,10),
-                    color: colors[Math.floor(Math.random() * 3)],
-                    // name: texts[Math.floor(Math.random() * 3)],
-                    name: getRandomElement(Math.floor(Math.random() * 3)),
-                })
+                    start: convertDatetoTime(i),
+                    startTime: getTime(),
+                    endTime: getTime(),
+                    title: texts[randomNumber(3)],
+                    title2: texts[randomNumber(3)],
+                    type: types[randomNumber(2)],
+                    isWarning: boleans[randomNumber(2)] ,
+                    color: colors[randomNumber(3)],
+
+                });
             }
             console.log(JSON.parse(JSON.stringify(events)));
             this.events = events;
+        },
+        showEvent(event) {
+            console.log(event);
+            this.isActiveModal = true;
+            this.event = event;
+        },
+        viewDay(event) {
+        },
+        handleCloseModal() {
+            this.isActiveModal = false;
         }
-    }
+    },
+    components: { CalendarModal }
 }
 </script>
 
