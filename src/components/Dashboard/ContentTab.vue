@@ -5,13 +5,14 @@
     </div>
 </template>
 <script>
+
 export default {
     name: 'ContentTab',
-    
     data() {
         return {}
     },
 }
 </script>
+
 <style lang="css" scoped>
 </style>

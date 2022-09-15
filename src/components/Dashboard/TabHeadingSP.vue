@@ -1,6 +1,6 @@
 <template>
-<div class="db-tab-heading-sp">
-    <div class="db-tab-heading-sp-row">
+<div class="db-heading-sp">
+    <div class="db-heading-sp-row">
         <div class="db-box-blue">
             <div class="db-box-blue-row">
                 <div class="db-box-blue-col">
@@ -38,7 +38,7 @@
         :class="{active: isActive}"
     >
         <span class="icon v-2 icon-arrow-right" 
-            @click="() => {onHeadingTabSPClick(heading)}"
+            @click="() => {onTabHeadingSPClick(heading)}"
         >></span>
     </div>
 </div>
@@ -47,11 +47,11 @@
     
 <script>
 export default {
-    name: 'HeadingTabItemSP',
+    name: 'TabHeadingItemSP',
     props: {
         heading: Number,
         isActive: Boolean,
-        onHeadingTabSPClick: Function
+        onTabHeadingSPClick: Function
     },
     data() {
         return {

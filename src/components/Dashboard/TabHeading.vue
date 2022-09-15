@@ -1,7 +1,7 @@
 <template>
-    <div class="db-tab-heading-pc-item"
+    <div class="db-heading-pc-item"
          :class="{active: isActive}"
-         @click="() => { onHeadingTabClick(heading) }"
+         @click="() => { onTabHeadingClick(index) }"
     >
         <div class="db-box-blue">
             <div class="db-box-blue-row">
@@ -39,11 +39,11 @@
 </template>
 <script>
 export default {
-    name: 'HeadingTab',
+    name: 'TabHeading',
     props: {
-        heading: Number,
+        index: Number,
         isActive: Boolean,
-        onHeadingTabClick: Function
+        onTabHeadingClick: Function
     },
     data() {
         return {}

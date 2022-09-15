@@ -6,11 +6,13 @@
             <div class="db-header">
                 <div class="db-header-back">
                     <v-icon>arrow_back_ios</v-icon>
+                    <!-- <span class="icon-arrow-left"></span> -->
                 </div>
                 <div class="db-header-close"
                     @click="onCloseModal"
                 >
                     <v-icon>cancel</v-icon>
+                    <!-- <span class="icon-close-cl-ol">close</span> -->
                 </div>
             </div>
             <div class="db-body">
@@ -18,7 +20,7 @@
                     <ul class="db-body-tab-heading">
                         <li v-for="{ index, content, heading } in tabs"
                             :class="{ active: index === currentTab}"
-                            @click="handleHeadingTabClick(index)"
+                            @click="handleTabHeadingClick(index)"
                         >
                             {{ heading }}
                         </li>
@@ -45,7 +47,7 @@
 
 <script>
     export default {
-        name: 'CalendarModal',
+        name: 'ModalCalendar',
         props: {
             isActiveModal: Boolean,
             onCloseModal: Function,
@@ -100,7 +102,7 @@
             }
         },
         methods: {
-            handleHeadingTabClick(index) {
+            handleTabHeadingClick(index) {
                 this.currentTab = index;
             },
         }

@@ -1,0 +1,128 @@
+.v-application .green,
+.v-application .red
+    background-color: unset !important
+    border-color: unset !important
+
+.v-calendar .v-event
+    width: 100% !important
+    background-color: unset !important
+    color: #000 !important
+
+.v-calendar-weekly__day
+    padding: 12px 12px 8px 12px
+    &.disable
+        background-color: #f7fafc
+        .db-appointment.green .db-appointment-btn-span
+            background-color: #e7f8f7 !important
+        .db-appointment.red .db-appointment-btn-span
+            background-color: #FDEFEF !important
+        .db-appointment .db-appointment-btn-text
+            color: #bdc8ce
+      
+    .v-event
+        &:not(:nth-last-child(2))
+            margin-bottom: 20px !important
+
+.v-calendar-weekly__head-weekday
+    height: max-content
+    padding-top: 12px
+    padding-left: 12px
+    padding-bottom: 8px
+    text-align-last: left
+    background-color: #E0F0FC !important
+.v-calendar-weekly__head
+    border-bottom: 1px solid #e0e0e0
+    .v-calendar-weekly__head-weekday:not(:last-child)
+        border-right: 1px solid #BDC8CE
+
+.v-calendar.v-calendar-events 
+    .v-calendar-weekly__day
+        margin-right: unset
+    .v-calendar-weekly__head-weekday
+        margin-right: unset
+
+.theme--light.v-calendar-weekly .v-calendar-weekly__head-weekday
+    color: #111a1e
+    &.v-past
+        color: #111a1e
+
+.theme--light.v-calendar-weekly .v-calendar-weekly__day.v-outside
+    background-color: #bdc8ce
+    .theme--light.v-btn
+        color: #667177
+
+.v-calendar-weekly__day-label
+    margin-top: unset
+    margin-bottom: 8px
+    text-align: left
+
+.v-btn--fab.v-size--small
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 28px
+    height: 28px
+    font-size: 14px
+    font-weight: 400
+
+.theme--light.v-btn.v-btn--has-bg
+    // background-color: #00528e
+    // color: #fff
+
+// -------------- dashboard-calendar -------------- 
+
+.dashboard-calendar.v-2
+    .db-appointment
+        &.green .db-appointment-btn-span
+            background-color: #30b8b3
+        &.red .db-appointment-btn-span
+            background-color: #EB6767
+        &-btn
+            display: flex
+            align-items: center
+            margin-bottom: 4px
+            font-size: 10px
+            line-height: 12px
+            &-span
+                padding: 2px 4px
+                margin-right: 4px
+                border-radius: 3px 0 0 3px
+                background-color: #30b8b3
+                color: #fff
+            &-text
+
+        &-content
+            display: flex
+            align-items: flex-start
+            padding: 2px 4px
+            border-radius: 4px
+            font-size: 12px
+            line-height: 16px
+            &-icon
+                display: none
+            &-link
+                .db-text
+                    position: relative
+                    width: max-content
+                    font-size: 12px
+                    line-height: 16px
+                    color: #1d6bb7
+                    &:before
+                        content: ''
+                        display: block
+                        position: absolute
+                        left: 0
+                        bottom: 0
+                        height: 1px
+                        width: 100%
+                        background-color: #1d6bb7
+            &.has-notify
+                padding: 2px 4px 12px 4px
+                background-color: #fdefef
+                .db-appointment-content
+                    &-icon
+                        display: block
+                        margin-right: 4px
+                        .v-icon
+                            font-size: 12px
+                            color: #b93535
