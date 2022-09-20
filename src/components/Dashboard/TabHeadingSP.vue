@@ -1,40 +1,40 @@
 <template>
-<div class="db-heading-sp">
-    <div class="db-heading-sp-row">
-        <div class="db-box-blue">
-            <div class="db-box-blue-row">
-                <div class="db-box-blue-col">
-                    <div class="db-text-small">内見予定</div>
-                    <div class="db-text-big">本日</div>
+<div class="dashboard-tab-heading-sp">
+    <div class="heading-sp-row">
+        <div class="box-blue">
+            <div class="box-blue-row">
+                <div class="box-blue-col">
+                    <div class="text-small">内見予定</div>
+                    <div class="text-big">本日</div>
                 </div>
-                <div class="db-box-blue-col">
-                    <div class="db-number-big">1</div>
-                    <div class="db-number-small">件</div>
+                <div class="box-blue-col">
+                    <div class="number-big">1</div>
+                    <div class="number-small">件</div>
                 </div>
             </div>
-            <div class="db-box-blue-icon">
+            <div class="box-blue-icon">
                 <span class="icon-notice"></span>
             </div>
         </div>
-        <div class="db-info">
-            <div class="db-info-heading">未登録の事前準備タスク</div>
-            <div class="db-info-list">
-                <div class="db-info-item">
-                    <div class="db-info-item-text">物件情報</div>
-                    <div class="db-info-item-number">1<span>件</span></div>
+        <div class="info">
+            <div class="info-heading">未登録の事前準備タスク</div>
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-item-text">物件情報</div>
+                    <div class="info-item-number">1<span>件</span></div>
                 </div>
-                <div class="db-info-item disable">
-                    <div class="db-info-item-text">物件情報</div>
-                    <div class="db-info-item-number">1<span>件</span></div>
+                <div class="info-item disable">
+                    <div class="info-item-text">物件情報</div>
+                    <div class="info-item-number">1<span>件</span></div>
                 </div>
-                <div class="db-info-item disable">
-                    <div class="db-info-item-text">物件情報</div>
-                    <div class="db-info-item-number">1<span>件</span></div>
+                <div class="info-item disable">
+                    <div class="info-item-text">物件情報</div>
+                    <div class="info-item-number">1<span>件</span></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="db-arrow"
+    <div class="arrow"
         :class="{active: isActive}"
     >
         <span class="icon v-2 icon-arrow-right" 

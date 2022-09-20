@@ -1,0 +1,51 @@
+// -------------- dashboard-uncompleted-card -------------- 
+
+.dashboard-uncompleted-card.v-2
+    padding: 16px
+    border: 1px solid #BDC8CE
+    color: #101b21
+    > .db-header
+        font-size: 12px
+        line-height: 18px
+        .db-header
+            &-time
+                margin-bottom: 10px
+                color: #667177
+            &-box
+                display: flex
+                align-items: center
+                justify-content: center
+                min-width: 130px
+                width: max-content
+                height: 20px
+                padding: 2px 8px
+                margin-bottom: 10px
+                border-radius: 4px	
+                font-size: 12px
+                line-height: 16px
+                border: 1px solid #BADFFC
+                color: #101b21
+                background-color: #ffffff
+    > .db-body
+        font-size: 12px
+        line-height: 18px
+        .db-body
+            &-item
+                display: flex
+                &:not(:last-child)
+                    margin-bottom: 8px
+                &:first-child .db-body-item-value
+                    font-size: 14px
+                &-key
+                    min-width: 90px
+                    margin-right: 8px                
+                    color: #727679
+
+    > .db-footer
+        .db-footer
+            &-btn
+                max-width: 240px
+                margin: 0 auto
+                font-size: 14px
+                line-height: 16px
+                text-align: center

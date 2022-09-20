@@ -1,6 +1,6 @@
 <template>
-    <div class="dashboard-calendar v-2">
-        <div class="db-calendar-heading">カレンダー 2021年1月10日〜2021年1月30日</div>
+    <div class="dashboard-calendar">
+        <div class="heading">カレンダー 2021年1月10日〜2021年1月30日</div>
         <v-calendar
             :now="today"
             :value="today"
@@ -15,23 +15,23 @@
             type="custom-weekly"
         >
             <template v-slot:event="{ event: { startTime, endTime, title, title2, isWarning, type } }">
-                <div class="db-appointment"
+                <div class="appointment"
                     :class="type"
                 >
-                    <div class="db-appointment-btn">
-                        <div class="db-appointment-btn-span">受付</div>
-                        <div class="db-appointment-btn-text">{{ title }}</div>
+                    <div class="appointment-btn">
+                        <div class="appointment-btn-span">受付</div>
+                        <div class="appointment-btn-text">{{ title }}</div>
                     </div>
-                    <div class="db-appointment-content"
+                    <div class="appointment-content"
                         :class="{ 'has-notify' : isWarning }"
                     >
-                        <div class="db-appointment-content-icon">
+                        <div class="appointment-content-icon">
                             <v-icon>info</v-icon>
                             <!-- <span class="icon-notice"></span> -->
                         </div>
-                        <div class="db-appointment-content-link">
-                            <div class="db-text">{{ startTime }}-{{ endTime }}</div>
-                            <div class="db-text">{{ title }}</div>
+                        <div class="appointment-content-link">
+                            <div class="text">{{ startTime }}-{{ endTime }}</div>
+                            <div class="text">{{ title }}</div>
                         </div>
                     </div>
                 </div>

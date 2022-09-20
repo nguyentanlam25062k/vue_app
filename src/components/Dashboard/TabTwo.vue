@@ -1,10 +1,14 @@
 <template>
     <div 
-        class="db-body-item-div"
+        class="dashboard-tab-body-content"
         :class="{ 'active': isActive}"
     >
         <DashboardKey/>
-        <DashboardCard/>
+        <div class="dashboard-card">
+            <DashboardCard/>
+            <DashboardCard/>
+            <DashboardCard/>
+        </div>
         <DashboardCalendar
             :today="today"
             :starDate="starDate"
@@ -22,10 +26,10 @@
 </template>
 
 <script>
-    import ModalCalendar from './ModalCalendar.vue';
     import DashboardCalendar from './DashboardCalendar.vue';
-    import DashboardKey from './DashboardKey.vue';
     import DashboardCard from './DashboardCard.vue';
+    import DashboardKey from './DashboardKey.vue';
+    import ModalCalendar from './ModalCalendar.vue';
 
     const convertDatetoTime = (date) => {
         return new Date(date).toISOString().substring(0, 10);
@@ -45,7 +49,7 @@
 
 
     export default {
-        name: "TabOne",
+        name: "TabTwo",
         components: {
             'ModalCalendar': ModalCalendar,
             'DashboardCalendar': DashboardCalendar,
@@ -109,16 +113,16 @@
                         });
                     }
                 }
-                console.log(JSON.parse(JSON.stringify(events)));
+                // console.log(JSON.parse(JSON.stringify(events)));
                 this.events = events;
             },
             showEvent(event) {
-                console.log(event);
+                // console.log(event);
                 this.openModal();
                 this.event = event;
             },
             viewDay(event) {
-                console.log('viewDay', event);
+                // console.log('viewDay', event);
             },
             openModal() {
                 this.isActiveModal = true;

@@ -2,22 +2,22 @@
     <div class="dashboard-modal-calendar v-2"
         :class="{ active: isActiveModal }"
     >
-        <div class="db-wrap">
-            <div class="db-header">
-                <div class="db-header-back">
+        <div class="modal-wrap">
+            <div class="modal-header">
+                <div class="modal-header-back">
                     <v-icon>arrow_back_ios</v-icon>
                     <!-- <span class="icon-arrow-left"></span> -->
                 </div>
-                <div class="db-header-close"
+                <div class="modal-header-close"
                     @click="onCloseModal"
                 >
                     <v-icon>cancel</v-icon>
                     <!-- <span class="icon-close-cl-ol">close</span> -->
                 </div>
             </div>
-            <div class="db-body">
-                <div class="db-body-tab">
-                    <ul class="db-body-tab-heading">
+            <div class="modal-body">
+                <div class="modal-body-tab">
+                    <ul class="modal-body-tab-heading">
                         <li v-for="{ index, content, heading } in tabs"
                             :class="{ active: index === currentTab}"
                             @click="handleTabHeadingClick(index)"
@@ -25,20 +25,20 @@
                             {{ heading }}
                         </li>
                     </ul>
-                    <div class="db-body-tab-content"
+                    <div class="modal-body-tab-content"
                         v-for="{ index, contents } in tabs"
                         :class="{ active: index === currentTab }"
                     >
-                        <div class="db-row"
+                        <div class="row"
                             v-for="{ k, v } in contents"
                         >
-                            <div class="db-key">{{ k }}</div>
-                            <div class="db-value">{{ v }}</div>
+                            <div class="key">{{ k }}</div>
+                            <div class="value">{{ v }}</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="db-footer">
+            <div class="modal-footer">
                 <a href="#">詳細を見る</a>            
             </div>  
         </div>  

@@ -1,6 +1,6 @@
 <template>
-    <div class="dashboard-tab v-2">
-        <ul class="db-heading-pc">
+    <div class="dashboard-tab">
+        <ul class="dashboard-tab-heading">
             <TabHeading 
                 v-for="{ index } in tabs" 
                 :index="index" 
@@ -8,9 +8,10 @@
                 :onTabHeadingClick="TabHeadingClick" 
             />
         </ul>
-        <ul class="db-body">
-            <li class="db-body-item" 
+        <ul class="dashboard-tab-body">
+            <li class="dashboard-tab-body-item" 
                 v-for="{ index, content } in tabs"
+                :class="{active: index === currentTab}"
             >
                 <TabHeadingSP 
                     :index="index" 

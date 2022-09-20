@@ -1,32 +1,25 @@
 <template>
-    <div class="dashboard-key v-2">
-        <div class="db-text">鍵の受け渡し予定</div>
-        <ul class="db-list">
-            <li class="db-item">
-                <div class="db-item-box-blue">鍵取り</div>
-                <div class="db-item-text">あり</div>
-                <div class="db-item-icon">
+    <div class="dashboard-key">
+        <div class="heading">鍵の受け渡し予定</div>
+        <ul class="list">
+            <li class="item">
+                <div class="item-box-blue">鍵取り</div>
+                <div class="item-text">あり</div>
+                <div class="item-icon">
                     <span class="icon-check">+</span>
                 </div>
             </li>
-            <li class="db-item">
-                <div class="db-item-box-blue">鍵取り</div>
-                <div class="db-item-text">あり</div>
-                <div class="db-item-icon">
+            <li class="item disable">
+                <div class="item-box-blue">鍵取り</div>
+                <div class="item-text">あり</div>
+                <div class="item-icon">
                     <span class="icon-check">+</span>
                 </div>
             </li>
-            <li class="db-item disable">
-                <div class="db-item-box-blue">鍵取り</div>
-                <div class="db-item-text">あり</div>
-                <div class="db-item-icon">
-                    <span class="icon-check">+</span>
-                </div>DashboardKey
-            </li>
-            <li class="db-item disable">
-                <div class="db-item-box-blue">鍵取り</div>
-                <div class="db-item-text">あり</div>
-                <div class="db-item-icon">
+            <li class="item disable">
+                <div class="item-box-blue">鍵取り</div>
+                <div class="item-text">あり</div>
+                <div class="item-icon">
                     <span class="icon-check">+</span>
                 </div>
             </li>

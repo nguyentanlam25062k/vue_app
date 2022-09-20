@@ -3,40 +3,39 @@
 	display: flex
 	align-items: center
 	margin-bottom: 24px
-	.db
+	.heading
+		margin-right: 24px
+		font-size: 12px
+		line-height: 16px
+	.list
+		display: flex
+		align-items: center
+	.item
+		display: flex
+		align-items: center
+		&:not(:last-child)
+			margin-right: 16px
+		&.disable
+			.item-text
+				color: #bdc8ce
+			.item-icon
+				background-color: #e7f8f7
+		&-box-blue
+			padding: 2px 4px
+			margin-right: 4px
+			font-size: 10px
+			line-height: 12px
+			background-color: #e0f0fc
 		&-text
-			margin-right: 24px
+			margin-right: 8px
 			font-size: 12px
 			line-height: 16px
-		&-list
+		&-icon
+			width: 16px
+			height: 16px
 			display: flex
 			align-items: center
-		&-item
-			display: flex
-			align-items: center
-			&:not(:last-child)
-				margin-right: 16px
-			&.disable
-				.db-key-item-text
-					color: #bdc8ce
-				.db-key-item-icon
-					background-color: #e7f8f7
-			&-box-blue
-				padding: 2px 4px
-				margin-right: 4px
-				font-size: 10px
-				line-height: 12px
-				background-color: #e0f0fc
-			&-text
-				margin-right: 8px
-				font-size: 12px
-				line-height: 16px
-			&-icon
-				width: 16px
-				height: 16px
-				display: flex
-				align-items: center
-				justify-content: center
-				border-radius: 4px
-				color: #fff
-				background-color: #30b8b3
+			justify-content: center
+			border-radius: 4px
+			color: #fff
+			background-color: #30b8b3

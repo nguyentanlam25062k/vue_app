@@ -1,179 +1,178 @@
-@import "./ModalCalendar.sass"
-@import "./Calendar.sass"
-@import "./DashboardCalendar"
-@import "./DashboardKey.sass"
-@import "./DashboardFilter.sass"
-@import "./DashboardNotify.sass"
-@import "./DashboardCard.sass"
+// @import "./Calendar.sass"
+// @import "./DashboardCalendar"
+// @import "./DashboardCard.sass"
+// @import "./DashboardFilter.sass"
+// @import "./DashboardKey.sass"
+// @import "./DashboardNotify.sass"
+// @import "./DashboardTab.sass"
+// @import "./DashboardUncompletedCard.sass"
+// @import "./ModalCalendar.sass"
+// @import "./TabHeading.sass"
 
-// -------------- dashboard-tabs -------------- 
-.dashboard-tab.v-2
-	--boder-heading-pc: 3px
-	--color-boder-heading-pc: #30B8B3
-	ul
-		list-style-type: none
-	.db-heading-pc
+.dashboard.v-2
+	// -------------- dashboard-notify -------------- 
+	> .dashboard-notify
 		display: flex
-		position: relative
-		padding-left: 20px
-		padding-right: 20px
-		&:before
-			content: ''
-			display: block
-			height: var(--boder-heading-pc)
-			width: 100%
-			background-color: var(--color-boder-heading-pc)
-			position: absolute
-			left: 0
-			bottom: 0
-			z-index: 2
-		&-item
+		align-items: center
+		padding: 16px
+		color: #fff
+		background-color: #1d6bb7
+		.heading
+			font-size: 16px
+			line-height: 24px
+			margin-right: 40px
+			flex-shrink: 0
+		.slide
 			position: relative
+			overflow: hidden
+			height: 52px
+			width: 800px
+		.list
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			transition: all 1s
+		.item
 			display: flex
-			flex-grow: 1
-			padding: 24px
-			border-radius: 4px 4px 0 0
-			transition: all .2s
-			border: var(--boder-heading-pc) solid transparent
-			z-index: 0
+			align-items: center
+			&:not(:last-child)
+				padding-bottom: 4px
+			&-time
+				margin-right: 16px
+			&-link
+				font-size: 14px
+				line-height: 20px
+				margin-right: 130px
+				color: #fff
+			&-icon
+			.material-icons
+				font-size: 12px
+		.close
+			margin-left: 20px
+			.material-icons
+				color: #fff	
+
+	// -------------- dashboard-filter --------------
+	> .dashboard-filter
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		margin-top: 16px
+		margin-bottom: 16px
+		.text
+			margin-right: 8px
+			font-size: 14px
+			line-height: 22px
+		.input
+			position: relative
+			max-width: 400px
+			width: 100%
+			&::after
+				content: ''
+				display: block
+				position: absolute
+				top: 14px
+				right: 8px
+				width: 0
+				height: 0
+				border-left: 5px solid transparent
+				border-right: 5px solid transparent
+				border-bottom: 5px solid black
+				cursor: pointer
+			&::before
+				content: ''
+				display: block
+				position: absolute
+				top: 24px
+				right: 8px
+				width: 0
+				height: 0
+				border-left: 5px solid transparent
+				border-right: 5px solid transparent
+				border-top: 5px solid black
+				cursor: pointer
+			> select
+				width: 100%
+				padding: 12px 8px 8px 8px
+				font-size: 14px
+				line-height: 22px
+				border: 1px solid #BDC8CE
+				border-radius: 4px
+				outline: none
+				cursor: pointer
+
+	// -------------- dashboard-tab -------------- 
+	> .dashboard-tab
+		--boder-heading-pc: 3px
+		--color-boder-heading-pc: #30B8B3
+		ul
+			list-style-type: none
+
+		// -------------- dashboard-tab-heading -------------- 
+		.dashboard-tab-heading
+			display: flex
+			position: relative
+			padding-left: 20px
+			padding-right: 20px
 			&:before
 				content: ''
 				display: block
 				height: var(--boder-heading-pc)
 				width: 100%
-				background-color: #fff
+				background-color: var(--color-boder-heading-pc)
 				position: absolute
 				left: 0
 				bottom: 0
-				transform: translate(0, 100%)
-			&.active
-				border-top: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
-				border-right: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
-				border-left: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
-				z-index: 4
-			&:hover
-				border-top: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
-				border-right: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
-				border-left: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
-			&:not(:last-child)
-				margin-right: 16px
-		.db
-			&-box-blue
+				z-index: 2
+			&-item
 				position: relative
-				flex-shrink: 0
-				height: max-content
-				padding: 12px 16px
-				margin-right: 16px
-				border-radius: 4px
-				background-color: #1d6bb7
-				color: #fff
-				&-row
-					display: flex
-				&-col
-					&:first-child
-						margin-right: 12px
-						.db-text-small
-							font-size: 10px
-							line-height: 12px
-						.db-text-big	
-							font-size: 20px
-							line-height: 28px
-					&:last-child
-						display: flex
-						align-items: flex-end
-						.db-number-small
-							font-size: 10px
-							line-height: 12px
-						.db-number-big
-							font-size: 32px
-							line-height: 1.3
-				&-icon
+				display: flex
+				flex-grow: 1
+				padding: 24px
+				border-radius: 4px 4px 0 0
+				transition: all .2s
+				border: var(--boder-heading-pc) solid transparent
+				z-index: 0
+				&:before
+					content: ''
+					display: block
+					height: var(--boder-heading-pc)
+					width: 100%
+					background-color: #fff
 					position: absolute
-					top: 0
-					right: 0
-					transform: translate(40%, -40%)
-					.icon-notice
-						width: 24px
-						height: 24px
-						border-radius: 100%
-						color: #b93535
-						background-color: #fff
-			&-info
-				&-heading
-					padding: 4px 0
-					margin-bottom: 4px
-					background: #f7fafc
-					font-size: 10px
-					line-height: 12px
-					text-align: center
-				&-list
-					display: flex
-				&-item
-					color: #667177
-					&.disable
-						color: #bdc8ce
-					&:not(:last-child)
-						margin-right: 12px
-					&-text
-						margin-bottom: 4px
-						font-size: 10px
-						line-height: 12px
-					&-number
-						text-align: center
-						span
-							font-size: 10px
-							line-height: 12px
-	.db-heading-sp
-		display: none
-	.db-body
-		padding-top: 40px
-		padding-left: 10px
-		padding-right: 10px
-		&-item-div
-			position: relative
-			visibility: hidden
-			height: 0
-			left: 100px
-			opacity: 0
-			transition: opacity 1s, left .5s
-			&.active
-				height: 100%
-				left: 0
-				visibility: visible
-				opacity: 1
-			
-@media screen and (max-width: 768px)
-	.dashboard-tab.v-2
-		.db-heading-pc
-			display: none
-		.db-heading-sp
-			display: flex
-			align-items: center
-			justify-content: space-between
-			.db
-				&-heading-sp-row
-					width: 100%
-					margin-right: 10px
-				&-box-blue
+					left: 0
+					bottom: 0
+					transform: translate(0, 100%)
+				&.active
+					border-top: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
+					border-right: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
+					border-left: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
+					z-index: 4
+				&:hover
+					border-top: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
+					border-right: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
+					border-left: var(--boder-heading-pc) solid var(--color-boder-heading-pc)
+				&:not(:last-child)
+					margin-right: 16px
+				.box-blue
 					position: relative
-					width: 100%
+					flex-shrink: 0
 					height: max-content
 					padding: 12px 16px
-					margin-bottom: 16px
 					margin-right: 16px
 					border-radius: 4px
 					background-color: #1d6bb7
 					color: #fff
 					&-row
 						display: flex
-						justify-content: center
 					&-col
 						&:first-child
-							margin-right: 30px
+							margin-right: 12px
 							.db-text-small
 								font-size: 10px
 								line-height: 12px
-								margin-bottom: 4px
 							.db-text-big	
 								font-size: 20px
 								line-height: 28px
@@ -191,18 +190,22 @@
 						top: 0
 						right: 0
 						transform: translate(40%, -40%)
+						.material-icons
+							font-size: 24px
+							border-radius: 100%
+							color: #b93535
+							background-color: #fff
 						.icon-notice
 							width: 24px
 							height: 24px
 							border-radius: 100%
+							font-size: 24px
 							color: #b93535
 							background-color: #fff
-				&-info
-					display: flex
+				.infor
 					&-heading
-						max-width: 120px
-						padding: 8px 24px
-						margin-right: 28px
+						padding: 4px 0
+						margin-bottom: 4px
 						background: #f7fafc
 						font-size: 10px
 						line-height: 12px
@@ -224,24 +227,658 @@
 							span
 								font-size: 10px
 								line-height: 12px
-				&-arrow
-					transition: all .2s
-					transform: rotate(-90deg)
-					&.active
-						transform: rotate(90deg)
-		.db-body
-			padding-left: unset
-			padding-right: unset
-		.db-body-item
-			&:first-child
-				padding-top: 10px
-				border-top: 1px solid #BDC8CE
+
+		// -------------- dashboard-tab-body -------------- 
+		.dashboard-tab-body
+			padding-top: 40px
+			padding-left: 10px
+			padding-right: 10px
+			&-item
+				position: relative
+				visibility: hidden
+				height: 0
+				left: 100px
+				opacity: 0
+				transition: opacity 1s, left .5s
+				&.active
+					height: 100%
+					left: 0
+					visibility: visible
+					opacity: 1
+
+		// -------------- dashboard-tab-heading-sp -------------- 
+		.dashboard-tab-heading-sp
+			display: none
+
+	// -------------- dashboard-key -------------- 
+	.dashboard-key
+		display: flex
+		align-items: center
+		margin-bottom: 24px
+		.heading
+			margin-right: 24px
+			font-size: 12px
+			line-height: 16px
+		.list
+			display: flex
+			align-items: center
+		.item
+			display: flex
+			align-items: center
 			&:not(:last-child)
-				padding-bottom: 16px
-				margin-bottom: 10px
-				border-bottom: 1px solid #BDC8CE
+				margin-right: 16px
+			&.disable
+				.item-text
+					color: #bdc8ce
+				.item-icon
+					background-color: #e7f8f7
+			&-box-blue
+				padding: 2px 4px
+				margin-right: 4px
+				font-size: 10px
+				line-height: 12px
+				background-color: #e0f0fc
+			&-text
+				margin-right: 8px
+				font-size: 12px
+				line-height: 16px
+			&-icon
+				width: 16px
+				height: 16px
+				display: flex
+				align-items: center
+				justify-content: center
+				border-radius: 4px
+				color: #fff
+				background-color: #30b8b3
+
+	// -------------- dashboard-card -------------- 
+	.dashboard-card
+		&-item
+			font-family: "Hiragino Kaku Gothic ProN"
+			border: 1px solid #101B21
+			border-top: 4px solid #101B21
+			border-radius: 4px
+			overflow: hidden
+			&:not(:last-child)
+				margin-bottom: 24px
+			.card-header
+				&-row
+					display: flex
+					justify-content: space-between
+					&:first-child
+						padding: 12px 12px 0 12px
+				&-col
+				.box-outline-blue
+					display: flex
+					align-items: center
+					justify-content: center
+					min-width: 130px
+					width: max-content
+					height: 20px
+					padding: 2px 8px
+					margin-bottom: 12px
+					border-radius: 4px	
+					font-size: 12px
+					line-height: 16px
+					border: 1px solid #BADFFC
+					color: #101b21
+					background-color: #ffffff
+				.address
+					display: flex
+					align-items: center
+					margin-bottom: 8px
+					&-icon
+						font-size: 14px
+						color: #eb6767
+					&-text
+						font-size: 12px
+						line-height: 16px
+				.building-name
+					font-size: 18px
+					line-height: 28px
+				.key
+					display: flex
+					align-items: center
+					padding: 4px 4px 4px 0px
+					margin-bottom: 12px
+					background-color: #f5f8fa
+					&-icon
+						font-size: 14px
+						margin-right: 4px
+					&-text
+						display: flex
+						font-size: 10px
+						line-height: 14px
+						p:not(:last-child)
+							padding-right: 6px
+							margin-right: 2px
+							position: relative
+							&:before
+								content: '/'
+								display: block
+								position: absolute
+								top: 0
+								right: 0
+								font-size: 16px
+								font-weight: bold
+				.row-box
+					display: flex
+					margin-bottom: 12px
+					.col-box
+						display: flex
+						align-items: flex-end
+						&:first-child
+							margin-right: 24px
+							.price
+								font-size: 12px
+								line-height: 16px
+								color: #B93535
+						&:last-child
+							.number
+								font-size: 12px
+								line-height: 16px
+								color: #bdc8ce
+				.box-blue
+					display: flex
+					align-items: center
+					justify-content: center
+					width: max-content
+					height: 20px
+					padding: 2px 8px
+					margin-right: 4px
+					border-radius: 4px	
+					font-size: 10px
+					line-height: 13px
+					border: 1px solid #E0F0FC
+					color: #101B21
+					background-color: #E0F0FC
+				.box-outline-gray
+					display: flex
+					align-items: center
+					justify-content: center
+					min-width: 130px
+					width: max-content
+					height: 20px
+					margin-right: 8px
+					padding: 2px 8px
+					border-radius: 4px	
+					font-size: 12px
+					line-height: 16px
+					border: 1px solid #BADFFC
+					color: #101b21
+					background-color: #ffffff
+				.status
+					&-text
+						margin-bottom: 8px
+						font-size: 10px
+						line-height: 12px	
+						text-align: center
+					&-list
+						display: flex
+					&-item
+						&:not(:last-child)
+							margin-right: 4px
+						&-header
+							display: flex
+							margin-bottom: 4px
+						&-text
+							margin-right: 4px
+							text-transform: uppercase
+							color: #bdc8ce
+							font-size: 10px
+							line-height: 13px
+						&-icon-new
+							padding: 2px 6px 2px 2px
+							font-weight: 500
+							border-radius: 4px
+							color: #fff
+							background-color: #ca2c36
+							font-size: 10px
+							line-height: 12px
+						&-body
+							display: flex
+							align-items: center
+							justify-content: center
+							min-width: 75px
+							padding: 4px 0
+							border-radius: 4px
+							color: #fff
+							background-color: #30B8B3
+							.icon-check
+								font-size: 15px	
+				.history
+					width: 100%
+					padding: 8px 12px
+					background-color: #f7fafc
+					p
+						padding: 12px 12px 8px 12px
+						background-color: #fff
+						font-size: 12px
+						line-height: 16px
+				.link
+					padding: 10px 12px
+					color: #1d6bb7
+					font-size: 12px
+					line-height: 16px
+					text-align: right
+					width: 100%
+			.card-body
+				padding: 8px 12px
+				background-color: #bdc8ce
+
+				// -------------- dashboard-card-child -------------- 
+				.card-child
+					background-color: #fff
+					border-radius: 4px
+					overflow: hidden
+				.card-child-header
+					padding: 12px
+					background-color: #1d6bb7
+					> div:not(:last-child)
+						margin-bottom: 8px
+				.heading
+					display: flex
+					align-items: flex-end
+					margin-bottom: 8px
+					&-icon
+						color: #fff
+						margin-right: 8px
+						font-size: 20px
+					&-outline-blue
+						display: flex
+						align-items: center
+						justify-content: center
+						min-width: 130px
+						width: max-content
+						height: 20px
+						padding: 2px 8px
+						margin-right: 8px
+						border-radius: 4px	
+						font-size: 12px
+						line-height: 16px
+						border: 1px solid #BADFFC
+						color: #101b21
+						background-color: #ffffff
+					&-text
+						display: flex
+						color: #fff
+						font-size: 16px
+						p
+							&:not(:last-child)
+								margin-right: 4px
+				.notify
+					display: flex
+					align-items: center
+					width: 100%
+					padding: 4px
+					border-radius: 4px
+					color: #b93535
+					background-color: #fdefef
+					&-icon
+						font-size: 16px
+						margin-right: 4px
+					&-text
+						font-size: 12px
+						line-height: 16px
+				.card-child-body
+					padding: 8px 12px
+				.people
+					display: flex
+					margin-bottom: 4px
+					&-item
+						display: flex
+						align-items: flex-end
+						max-width: 50%
+						width: 100%
+						&-box-blue
+							display: flex
+							align-items: center
+							justify-content: center
+							width: max-content
+							height: 20px
+							padding: 2px 8px
+							margin-right: 4px
+							border-radius: 4px	
+							font-size: 10px
+							line-height: 13px
+							border: 1px solid #E0F0FC
+							color: #101B21
+							background-color: #E0F0FC
+						&-text
+							font-size: 12px
+							line-height: 16px	
+				.history
+					padding: 8px 12px
+					margin-left: -12px
+					margin-right: -12px
+					background-color: #f7fafc
+					p
+						padding: 12px 12px 8px 12px
+						background-color: #fff
+						font-size: 12px
+						line-height: 16px
+				.link
+					display: flex
+					justify-content: flex-end
+					padding-top: 8px
+					&-btn
+						display: flex
+						color: #1d6bb7
+						cursor: pointer
+						.btn-link
+							display: inline-block
+							font-size: 12px
+							margin-right: 8px
+						.icon-external
+							font-size: 14px
+							cursor: pointer
+
+	// -------------- dashboard-uncompleted-card -------------- 
+	.dashboard-uncompleted-card
+		&-item
+			padding: 16px
+			border: 1px solid #BDC8CE
+			color: #101b21
+			&:not(:last-child)
+				margin-bottom: 24px
+			.card-header
+				font-size: 12px
+				line-height: 18px
+				&-time
+					margin-bottom: 10px
+					color: #667177
+				&-box
+					display: flex
+					align-items: center
+					justify-content: center
+					min-width: 130px
+					width: max-content
+					height: 20px
+					padding: 2px 8px
+					margin-bottom: 10px
+					border-radius: 4px	
+					font-size: 12px
+					line-height: 16px
+					border: 1px solid #BADFFC
+					color: #101b21
+					background-color: #ffffff
+			.card-body
+				font-size: 12px
+				line-height: 18px
+				&-item
+					display: flex
+					&:not(:last-child)
+						margin-bottom: 8px
+					&:first-child .body-item-value
+						font-size: 14px
+					&-key
+						min-width: 90px
+						margin-right: 8px                
+						color: #727679
+			.card-footer
+				&-btn
+					max-width: 240px
+					margin: 0 auto
+					font-size: 14px
+					line-height: 16px
+					text-align: center
+
+	// -------------- dashboard-modal-calendar -------------- 
+	.dashboard-modal-calendar
+		display: flex
+		align-items: center
+		justify-content: center
+		content: ''
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: rgba(#000, .5)        
+		z-index: 20
+		display: none
+		&.active
+			display: flex
+		.modal-wrap
+			max-width: 600px
+			width: 100%
+			border-radius: 4px
+			border: 1px solid rgba(#000, .3)
+			background-color: #fff
+		.modal-header
+			display: flex
+			align-items: center
+			justify-content: space-between
+			padding: 10px 10px 6px 10px
+			&-back
+				font-size: 12px
+			&-close
+				font-size: 24px
+		.modal-body
+			height: 510px
+			padding-left: 15px
+			padding-right: 15px
+			overflow-y: scroll
+			&::-webkit-scrollbar
+				width: 6px
+
+			/* Track */
+			&::-webkit-scrollbar-track
+				border-radius: 4px
+				background: #ffffff
+
+			/* Handle */
+			&::-webkit-scrollbar-thumb
+				border-radius: 4px
+				background: #BDC8CE
+				transition: all .2s ease
 			
-				
+			/* Handle on hover */
+			&::-webkit-scrollbar-thumb:hover
+				background: rgba(#BDC8CE, .6)
+
+			&-tab
+				font-size: 12px
+				line-height: 16px
+				&-heading
+					display: flex
+					align-items: center
+					width: max-content
+					margin: 0 auto
+					border-radius: 22px
+					background-color: #a1e3e1
+					margin-bottom: 20px
+					> li
+						padding: 10px 16px
+						border-radius: 22px
+						transition: all .2s
+						border: 2px solid transparent
+						&.active
+							border: 2px solid #30B8B3
+							background-color: #fff
+
+				&-content
+					visibility: hidden
+					height: 0
+					transform: translateY(50%)
+					opacity: 0
+					transition: opacity 1s, transform .5s
+					&.active
+						height: 100%
+						transform: translateY(0)
+						visibility: visible
+						opacity: 1
+					.row
+						display: flex
+						align-items: center
+						&:first-child
+							border-top: 1px solid #BDC7D8
+						&:nth-child(n)
+							border-bottom: 1px solid #BDC7D8
+							
+					.key
+						max-width: 105px
+						width: 100%
+						padding: 10px 10px 6px 10px
+						background-color: #e0f0fc
+					.value
+						padding: 10px 10px 6px 10px
+		.modal-footer    
+			display: flex
+			justify-content: center 
+			padding-top: 14px
+			padding-bottom: 14px
+			font-size: 14px
+			line-height: 16px
+
+	// -------------- dashboard-calendar -------------- 
+	.dashboard-calendar
+		margin-bottom: 100px
+		.heading
+			position: relative
+			padding-left: 24px
+			margin-top: 85px
+			margin-bottom: 40px
+			font-size: 22px
+			line-height: 30px
+			&::before
+				content: ''
+				position: absolute
+				left: 0
+				top: 50%
+				transform: translateY(-50%)
+				display: block
+				height: 36px
+				width: 8px
+				border-radius: 4px
+				background-color: #1d6bb7
+
+		.appointment
+			&.green .appointment-btn-span
+				background-color: #30b8b3
+			&.red .appointment-btn-span
+				background-color: #EB6767
+			&-btn
+				display: flex
+				align-items: center
+				margin-bottom: 4px
+				font-size: 10px
+				line-height: 12px
+				&-span
+					padding: 2px 4px
+					margin-right: 4px
+					border-radius: 3px 0 0 3px
+					background-color: #30b8b3
+					color: #fff
+				&-text
+
+			&-content
+				display: flex
+				align-items: flex-start
+				padding: 2px 4px
+				border-radius: 4px
+				font-size: 12px
+				line-height: 16px
+				&-icon
+					display: none
+				&-link
+					.text
+						position: relative
+						width: max-content
+						font-size: 12px
+						line-height: 16px
+						color: #1d6bb7
+						&:before
+							content: ''
+							display: block
+							position: absolute
+							left: 0
+							bottom: 0
+							height: 1px
+							width: 100%
+							background-color: #1d6bb7
+				&.has-notify
+					padding: 2px 4px 12px 4px
+					background-color: #fdefef
+					.appointment-content
+						&-icon
+							display: block
+							margin-right: 4px
+							.v-icon
+								font-size: 12px
+								color: #b93535
 
 
+// -------------- custom-calendar -------------- 	
+.v-application .green,
+.v-application .red
+	background-color: unset !important
+	border-color: unset !important
+
+.v-calendar .v-event
+	width: 100% !important
+	background-color: unset !important
+	color: #000 !important
+
+.v-calendar-weekly__day
+	padding: 12px 12px 8px 12px
+	&.disable
+		background-color: #f7fafc
+		.appointment.green .appointment-btn-span
+			background-color: #e7f8f7 !important
+		.appointment.red .appointment-btn-span
+			background-color: #FDEFEF !important
+		.appointment .appointment-btn-text
+			color: #bdc8ce
+	  
+	.v-event
+		&:not(:nth-last-child(2))
+			margin-bottom: 20px !important
+
+.v-calendar-weekly__head-weekday
+	height: max-content
+	padding-top: 12px
+	padding-left: 12px
+	padding-bottom: 8px
+	text-align-last: left
+	background-color: #E0F0FC !important
+.v-calendar-weekly__head
+	border-bottom: 1px solid #e0e0e0
+	.v-calendar-weekly__head-weekday:not(:last-child)
+		border-right: 1px solid #BDC8CE
+
+.v-calendar.v-calendar-events 
+	.v-calendar-weekly__day
+		margin-right: unset
+	.v-calendar-weekly__head-weekday
+		margin-right: unset
+
+.theme--light.v-calendar-weekly .v-calendar-weekly__head-weekday
+	color: #111a1e
+	&.v-past
+		color: #111a1e
+
+.theme--light.v-calendar-weekly .v-calendar-weekly__day.v-outside
+	background-color: #bdc8ce
+	.theme--light.v-btn
+		color: #667177
+
+.v-calendar-weekly__day-label
+	margin-top: unset
+	margin-bottom: 8px
+	text-align: left
+
+.v-btn--fab.v-size--small
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 28px
+	height: 28px
+	font-size: 14px
+	font-weight: 400
+
+.theme--light.v-btn.v-btn--has-bg
+	// background-color: #00528e
+	// color: #fff
 
