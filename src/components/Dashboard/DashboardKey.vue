@@ -1,7 +1,17 @@
 <template>
     <div class="dashboard-key">
-        <div class="heading">鍵の受け渡し予定</div>
+        <div class="heading">
+            <span class="material-icons">key</span>
+            <div>鍵の受け渡し予定</div>
+        </div>
         <ul class="list">
+            <li class="item">
+                <div class="item-box-blue">鍵取り</div>
+                <div class="item-text">あり</div>
+                <div class="item-icon">
+                    <span class="icon-check">+</span>
+                </div>
+            </li>
             <li class="item">
                 <div class="item-box-blue">鍵取り</div>
                 <div class="item-text">あり</div>

@@ -16,20 +16,20 @@
                 <span class="icon-notice"></span>
             </div>
         </div>
-        <div class="info">
-            <div class="info-heading">未登録の事前準備タスク</div>
-            <div class="info-list">
-                <div class="info-item">
-                    <div class="info-item-text">物件情報</div>
-                    <div class="info-item-number">1<span>件</span></div>
+        <div class="infor">
+            <div class="infor-heading">未登録の事前準備タスク</div>
+            <div class="infor-list">
+                <div class="infor-item">
+                    <div class="infor-item-text">物件情報</div>
+                    <div class="infor-item-number">1<span>件</span></div>
                 </div>
-                <div class="info-item disable">
-                    <div class="info-item-text">物件情報</div>
-                    <div class="info-item-number">1<span>件</span></div>
+                <div class="infor-item disable">
+                    <div class="infor-item-text">物件情報</div>
+                    <div class="infor-item-number">1<span>件</span></div>
                 </div>
-                <div class="info-item disable">
-                    <div class="info-item-text">物件情報</div>
-                    <div class="info-item-number">1<span>件</span></div>
+                <div class="infor-item disable">
+                    <div class="infor-item-text">物件情報</div>
+                    <div class="infor-item-number">1<span>件</span></div>
                 </div>
             </div>
         </div>

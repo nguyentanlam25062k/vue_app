@@ -39,11 +39,11 @@
     export default {
         name: 'DashboardTab',
         components: {
-            'TabHeading': TabHeading,
-            'TabHeadingSP': TabHeadingSP,
-            "TabOne": TabOne,
-            "TabTwo": TabTwo,
-            "TabThree": TabThree,
+        "TabHeading": TabHeading,
+        "TabHeadingSP": TabHeadingSP,
+        "TabOne": TabOne,
+        "TabTwo": TabTwo,
+        "TabThree": TabThree,
         },
         data() {
             return {

@@ -6,7 +6,8 @@
                     <div class="box-outline-blue">物件種別</div>
                     <div class="address">
                         <div class="address-icon">
-                            <span class="icon-pin"></span>
+                            <!-- <span class="icon-pin"></span> -->
+                            <span class="material-icons">location_on</span>
                         </div>
                         <div class="address-text">所在地</div>
                     </div>
@@ -88,7 +89,8 @@
                 <div class="card-child-header">
                     <div class="heading">
                         <div class="heading-icon">
-                            <span class="icon-date-pick"></span>
+                            <span class="material-icons">calendar_month</span>
+                            <!-- <span class="icon-date-pick"></span> -->
                         </div>
                         <div class="heading-outline-blue">内見理由</div>
                         <div class="heading-text">

@@ -9,11 +9,23 @@
             :events="events"
             :event-height="null"
             :event-color="colorFormat"
-            :weekday-format="dayFormat"
+            :weekday-format="weekdayFormat"
             @click:event="onShowEvent"
             @click:day="onViewDay"
             type="custom-weekly"
         >
+            <!-- <template v-slot:day-header="{date}">
+                <div class="xxxxxxx">{{ date }}</div>
+                <div class="xxxxxxx">xxxxxxxxxxxxx</div>
+            </template> -->
+            <template v-slot:day-label="{ day }">
+                <div class="btn-date">
+                    <div class="btn-date-notify">
+                        <v-icon>info</v-icon>
+                    </div>
+                    <div class="btn-date-numb">{{ day }}</div>
+                </div>
+            </template>
             <template v-slot:event="{ event: { startTime, endTime, title, title2, isWarning, type } }">
                 <div class="appointment"
                     :class="type"
@@ -30,7 +42,11 @@
                             <!-- <span class="icon-notice"></span> -->
                         </div>
                         <div class="appointment-content-link">
-                            <div class="text">{{ startTime }}-{{ endTime }}</div>
+                            <div class="text">
+                                <span>{{ startTime }}</span>
+                                <span>-</span>
+                                <span>{{ endTime }}</span>
+                            </div>
                             <div class="text">{{ title }}</div>
                         </div>
                     </div>
@@ -57,7 +73,10 @@
             colorFormat(e) {
                 return e.color;
             },
-            dayFormat({ weekday }) {
+            dayFormat({ day }) {
+                return day;
+            },
+            weekdayFormat({ weekday }) {
                 const dayMap = {
                     0: "日曜",
                     1: "月曜",

@@ -165,7 +165,7 @@
 					border-radius: 4px
 					background-color: #1d6bb7
 					color: #fff
-					&-row
+					&-row0
 						display: flex
 					&-col
 						&:first-child
@@ -234,21 +234,104 @@
 			padding-left: 10px
 			padding-right: 10px
 			&-item
-				position: relative
-				visibility: hidden
-				height: 0
-				left: 100px
-				opacity: 0
-				transition: opacity 1s, left .5s
-				&.active
-					height: 100%
-					left: 0
-					visibility: visible
-					opacity: 1
+				@media screen and (min-width: 767px)
+					position: relative
+					visibility: hidden
+					height: 0
+					left: 100px
+					opacity: 0
+					transition: opacity 1s, left .5s
+					&.active
+						height: 100%
+						left: 0
+						visibility: visible
+						opacity: 1
 
 		// -------------- dashboard-tab-heading-sp -------------- 
 		.dashboard-tab-heading-sp
 			display: none
+			align-items: center
+			justify-content: space-between
+			margin-bottom: 8px
+			.heading-sp-row
+				width: 100%
+				margin-right: 10px
+			.box-blue
+				position: relative
+				width: 100%
+				height: max-content
+				padding: 12px 16px
+				margin-bottom: 16px
+				margin-right: 16px
+				border-radius: 4px
+				background-color: #1d6bb7
+				color: #fff
+				&-row
+					display: flex
+					justify-content: center
+				&-col
+					&:first-child
+						margin-right: 30px
+						.text-small
+							font-size: 10px
+							line-height: 12px
+							margin-bottom: 4px
+						.text-big	
+							font-size: 20px
+							line-height: 28px
+					&:last-child
+						display: flex
+						align-items: flex-end
+						.number-small
+							font-size: 10px
+							line-height: 12px
+						.number-big
+							font-size: 32px
+							line-height: 1.3
+				&-icon
+					position: absolute
+					top: 0
+					right: 0
+					transform: translate(40%, -40%)
+					.icon-notice
+						width: 24px
+						height: 24px
+						border-radius: 100%
+						color: #b93535
+						background-color: #fff
+			.infor
+				display: flex
+				justify-content: space-between
+				&-heading
+					max-width: 120px
+					padding: 8px 24px
+					margin-right: 28px
+					background: #f7fafc
+					font-size: 10px
+					line-height: 12px
+					text-align: left
+				&-list
+					display: flex
+				&-item
+					color: #667177
+					&.disable
+						color: #bdc8ce
+					&:not(:last-child)
+						margin-right: 12px
+					&-text
+						margin-bottom: 4px
+						font-size: 10px
+						line-height: 12px
+					&-number
+						text-align: center
+						span
+							font-size: 10px
+							line-height: 12px
+			.arrow
+				transition: all .2s
+				transform: rotate(-90deg)
+				&.active
+					transform: rotate(90deg)
 
 	// -------------- dashboard-key -------------- 
 	.dashboard-key
@@ -256,12 +339,20 @@
 		align-items: center
 		margin-bottom: 24px
 		.heading
-			margin-right: 24px
-			font-size: 12px
-			line-height: 16px
-		.list
 			display: flex
 			align-items: center
+			margin-right: 24px
+			border-radius: 4px
+			font-size: 12px
+			line-height: 16px
+			background-color: #f7fafc
+			.material-icons
+				padding: 4px
+		.list
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+			gap: 8px 16px
 		.item
 			display: flex
 			align-items: center
@@ -293,286 +384,288 @@
 				background-color: #30b8b3
 
 	// -------------- dashboard-card -------------- 
-	.dashboard-card
-		&-item
-			font-family: "Hiragino Kaku Gothic ProN"
-			border: 1px solid #101B21
-			border-top: 4px solid #101B21
-			border-radius: 4px
-			overflow: hidden
-			&:not(:last-child)
-				margin-bottom: 24px
-			.card-header
-				&-row
-					display: flex
-					justify-content: space-between
-					&:first-child
-						padding: 12px 12px 0 12px
-				&-col
-				.box-outline-blue
-					display: flex
-					align-items: center
-					justify-content: center
-					min-width: 130px
-					width: max-content
-					height: 20px
-					padding: 2px 8px
-					margin-bottom: 12px
-					border-radius: 4px	
+	.dashboard-card-item
+		font-family: "Hiragino Kaku Gothic ProN"
+		border: 1px solid #101B21
+		border-top: 4px solid #101B21
+		border-radius: 4px
+		overflow: hidden
+		&:not(:last-child)
+			margin-bottom: 24px
+		.card-header
+			&-row
+				display: flex
+				justify-content: space-between
+				&:first-child
+					padding: 12px 12px 0 12px
+			&-col
+			.box-outline-blue
+				display: flex
+				align-items: center
+				justify-content: center
+				min-width: 130px
+				width: max-content
+				height: 20px
+				padding: 2px 8px
+				margin-bottom: 12px
+				border-radius: 4px	
+				font-size: 12px
+				line-height: 16px
+				border: 1px solid #BADFFC
+				color: #101b21
+				background-color: #ffffff
+			.address
+				display: flex
+				align-items: center
+				margin-bottom: 8px
+				&-icon
+					font-size: 14px
+					color: #eb6767
+				&-text
 					font-size: 12px
 					line-height: 16px
-					border: 1px solid #BADFFC
-					color: #101b21
-					background-color: #ffffff
-				.address
-					display: flex
-					align-items: center
-					margin-bottom: 8px
-					&-icon
-						font-size: 14px
-						color: #eb6767
-					&-text
-						font-size: 12px
-						line-height: 16px
-				.building-name
-					font-size: 18px
-					line-height: 28px
-				.key
-					display: flex
-					align-items: center
-					padding: 4px 4px 4px 0px
-					margin-bottom: 12px
-					background-color: #f5f8fa
-					&-icon
-						font-size: 14px
-						margin-right: 4px
-					&-text
-						display: flex
-						font-size: 10px
-						line-height: 14px
-						p:not(:last-child)
-							padding-right: 6px
-							margin-right: 2px
-							position: relative
-							&:before
-								content: '/'
-								display: block
-								position: absolute
-								top: 0
-								right: 0
-								font-size: 16px
-								font-weight: bold
-				.row-box
-					display: flex
-					margin-bottom: 12px
-					.col-box
-						display: flex
-						align-items: flex-end
-						&:first-child
-							margin-right: 24px
-							.price
-								font-size: 12px
-								line-height: 16px
-								color: #B93535
-						&:last-child
-							.number
-								font-size: 12px
-								line-height: 16px
-								color: #bdc8ce
-				.box-blue
-					display: flex
-					align-items: center
-					justify-content: center
-					width: max-content
-					height: 20px
-					padding: 2px 8px
+			.building-name
+				font-size: 18px
+				line-height: 28px
+			.key
+				display: flex
+				align-items: center
+				width: max-content
+				padding: 4px 20px 4px 0px
+				margin-bottom: 12px
+				border-radius: 4px
+				background-color: #f5f8fa
+				&-icon
+					font-size: 14px
 					margin-right: 4px
-					border-radius: 4px	
-					font-size: 10px
-					line-height: 13px
-					border: 1px solid #E0F0FC
-					color: #101B21
-					background-color: #E0F0FC
-				.box-outline-gray
+				&-text
 					display: flex
-					align-items: center
-					justify-content: center
-					min-width: 130px
-					width: max-content
-					height: 20px
-					margin-right: 8px
-					padding: 2px 8px
-					border-radius: 4px	
-					font-size: 12px
-					line-height: 16px
-					border: 1px solid #BADFFC
-					color: #101b21
-					background-color: #ffffff
-				.status
-					&-text
-						margin-bottom: 8px
-						font-size: 10px
-						line-height: 12px	
-						text-align: center
-					&-list
-						display: flex
-					&-item
-						&:not(:last-child)
-							margin-right: 4px
-						&-header
-							display: flex
-							margin-bottom: 4px
-						&-text
-							margin-right: 4px
-							text-transform: uppercase
-							color: #bdc8ce
-							font-size: 10px
-							line-height: 13px
-						&-icon-new
-							padding: 2px 6px 2px 2px
-							font-weight: 500
-							border-radius: 4px
-							color: #fff
-							background-color: #ca2c36
-							font-size: 10px
-							line-height: 12px
-						&-body
-							display: flex
-							align-items: center
-							justify-content: center
-							min-width: 75px
-							padding: 4px 0
-							border-radius: 4px
-							color: #fff
-							background-color: #30B8B3
-							.icon-check
-								font-size: 15px	
-				.history
-					width: 100%
-					padding: 8px 12px
-					background-color: #f7fafc
-					p
-						padding: 12px 12px 8px 12px
-						background-color: #fff
-						font-size: 12px
-						line-height: 16px
-				.link
-					padding: 10px 12px
-					color: #1d6bb7
-					font-size: 12px
-					line-height: 16px
-					text-align: right
-					width: 100%
-			.card-body
-				padding: 8px 12px
-				background-color: #bdc8ce
-
-				// -------------- dashboard-card-child -------------- 
-				.card-child
-					background-color: #fff
-					border-radius: 4px
-					overflow: hidden
-				.card-child-header
-					padding: 12px
-					background-color: #1d6bb7
-					> div:not(:last-child)
-						margin-bottom: 8px
-				.heading
+					font-size: 10px
+					line-height: 14px
+					p:not(:last-child)
+						padding-right: 6px
+						margin-right: 2px
+						position: relative
+						&:before
+							content: '/'
+							display: block
+							position: absolute
+							top: 0
+							right: 0
+							font-size: 16px
+							font-weight: bold
+			.row-box
+				display: flex
+				margin-bottom: 12px
+				.col-box
 					display: flex
 					align-items: flex-end
+					&:first-child
+						margin-right: 24px
+						.price
+							font-size: 12px
+							line-height: 16px
+							color: #B93535
+					&:last-child
+						.number
+							font-size: 12px
+							line-height: 16px
+							color: #bdc8ce
+			.box-blue
+				display: flex
+				align-items: center
+				justify-content: center
+				width: max-content
+				height: 20px
+				padding: 2px 8px
+				margin-right: 4px
+				border-radius: 4px	
+				font-size: 10px
+				line-height: 13px
+				border: 1px solid #E0F0FC
+				color: #101B21
+				background-color: #E0F0FC
+			.box-outline-gray
+				display: flex
+				align-items: center
+				justify-content: center
+				min-width: 130px
+				width: max-content
+				height: 20px
+				margin-right: 8px
+				padding: 2px 8px
+				border-radius: 4px	
+				font-size: 12px
+				line-height: 16px
+				border: 1px solid #BADFFC
+				color: #101b21
+				background-color: #ffffff
+			.status
+				&-text
 					margin-bottom: 8px
-					&-icon
+					font-size: 10px
+					line-height: 12px	
+					text-align: center
+				&-list
+					display: flex
+					flex-wrap: wrap
+				&-item
+					&:not(:last-child)
+						margin-right: 4px
+					&-header
+						display: flex
+						margin-bottom: 4px
+					&-text
+						margin-right: 4px
+						text-transform: uppercase
+						color: #bdc8ce
+						font-size: 10px
+						line-height: 13px
+					&-icon-new
+						padding: 2px 6px 2px 2px
+						font-weight: 500
+						border-radius: 4px
 						color: #fff
-						margin-right: 8px
-						font-size: 20px
-					&-outline-blue
+						background-color: #ca2c36
+						font-size: 10px
+						line-height: 12px
+					&-body
 						display: flex
 						align-items: center
 						justify-content: center
-						min-width: 130px
+						min-width: 75px
+						padding: 4px 0
+						border-radius: 4px
+						color: #fff
+						background-color: #30B8B3
+						.icon-check
+							font-size: 15px	
+			.history
+				width: 100%
+				padding: 8px 12px
+				background-color: #f7fafc
+				p
+					padding: 12px 12px 8px 12px
+					background-color: #fff
+					font-size: 12px
+					line-height: 16px
+			.link
+				padding: 10px 12px
+				color: #1d6bb7
+				font-size: 12px
+				line-height: 16px
+				text-align: right
+				width: 100%
+		.card-body
+			padding: 8px 12px
+			background-color: #bdc8ce
+
+			// -------------- dashboard-card-child -------------- 
+			.card-child
+				background-color: #fff
+				border-radius: 4px
+				overflow: hidden
+			.card-child-header
+				padding: 12px
+				background-color: #1d6bb7
+				> div:not(:last-child)
+					margin-bottom: 8px
+			.heading
+				display: flex
+				align-items: flex-end
+				margin-bottom: 8px
+				&-icon
+					color: #fff
+					margin-right: 8px
+					font-size: 20px
+				&-outline-blue
+					display: flex
+					align-items: center
+					justify-content: center
+					min-width: 130px
+					width: max-content
+					height: 20px
+					padding: 2px 8px
+					margin-right: 8px
+					border-radius: 4px	
+					font-size: 12px
+					line-height: 16px
+					border: 1px solid #BADFFC
+					color: #101b21
+					background-color: #ffffff
+				&-text
+					display: flex
+					color: #fff
+					font-size: 16px
+					p
+						&:not(:last-child)
+							margin-right: 4px
+			.notify
+				display: flex
+				align-items: center
+				width: 100%
+				padding: 4px
+				border-radius: 4px
+				color: #b93535
+				background-color: #fdefef
+				&-icon
+					font-size: 16px
+					margin-right: 4px
+				&-text
+					font-size: 12px
+					line-height: 16px
+			.card-child-body
+				padding: 8px 12px
+			.people
+				display: flex
+				margin-bottom: 4px
+				&-item
+					display: flex
+					align-items: flex-end
+					max-width: 50%
+					width: 100%
+					&-box-blue
+						display: flex
+						align-items: center
+						justify-content: center
 						width: max-content
 						height: 20px
 						padding: 2px 8px
-						margin-right: 8px
-						border-radius: 4px	
-						font-size: 12px
-						line-height: 16px
-						border: 1px solid #BADFFC
-						color: #101b21
-						background-color: #ffffff
-					&-text
-						display: flex
-						color: #fff
-						font-size: 16px
-						p
-							&:not(:last-child)
-								margin-right: 4px
-				.notify
-					display: flex
-					align-items: center
-					width: 100%
-					padding: 4px
-					border-radius: 4px
-					color: #b93535
-					background-color: #fdefef
-					&-icon
-						font-size: 16px
 						margin-right: 4px
+						border-radius: 4px	
+						font-size: 10px
+						line-height: 13px
+						border: 1px solid #E0F0FC
+						color: #101B21
+						background-color: #E0F0FC
 					&-text
 						font-size: 12px
-						line-height: 16px
-				.card-child-body
-					padding: 8px 12px
-				.people
+						line-height: 16px	
+			.history
+				padding: 8px 12px
+				margin-left: -12px
+				margin-right: -12px
+				background-color: #f7fafc
+				p
+					padding: 12px 12px 8px 12px
+					background-color: #fff
+					font-size: 12px
+					line-height: 16px
+			.link
+				display: flex
+				justify-content: flex-end
+				padding-top: 8px
+				&-btn
 					display: flex
-					margin-bottom: 4px
-					&-item
-						display: flex
-						align-items: flex-end
-						max-width: 50%
-						width: 100%
-						&-box-blue
-							display: flex
-							align-items: center
-							justify-content: center
-							width: max-content
-							height: 20px
-							padding: 2px 8px
-							margin-right: 4px
-							border-radius: 4px	
-							font-size: 10px
-							line-height: 13px
-							border: 1px solid #E0F0FC
-							color: #101B21
-							background-color: #E0F0FC
-						&-text
-							font-size: 12px
-							line-height: 16px	
-				.history
-					padding: 8px 12px
-					margin-left: -12px
-					margin-right: -12px
-					background-color: #f7fafc
-					p
-						padding: 12px 12px 8px 12px
-						background-color: #fff
+					color: #1d6bb7
+					cursor: pointer
+					.btn-link
+						display: inline-block
 						font-size: 12px
-						line-height: 16px
-				.link
-					display: flex
-					justify-content: flex-end
-					padding-top: 8px
-					&-btn
-						display: flex
-						color: #1d6bb7
+						margin-right: 8px
+					.icon-external
+						font-size: 14px
 						cursor: pointer
-						.btn-link
-							display: inline-block
-							font-size: 12px
-							margin-right: 8px
-						.icon-external
-							font-size: 14px
-							cursor: pointer
 
 	// -------------- dashboard-uncompleted-card -------------- 
 	.dashboard-uncompleted-card
@@ -754,6 +847,36 @@
 				border-radius: 4px
 				background-color: #1d6bb7
 
+		// -------------- dashboard-btn-date -------------- 
+		.btn-date
+				position: relative
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 28px
+				height: 28px
+				color: #fff
+				background-color: #00528e
+				border-radius: 100%
+				transition: all .2s
+				&.active
+					color: #fff
+					background-color: #00528e
+				&:hover
+					color: #fff
+					background-color: #00528e
+				&-notify
+					position: absolute
+					top: -7px
+					right: -5px
+					.v-icon
+						font-size: 14px
+						color: #b93535
+				&-numb
+					font-size: 14px
+					font-weight: 400
+
+		// -------------- dashboard-calendar-appointment -------------- 
 		.appointment
 			&.green .appointment-btn-span
 				background-color: #30b8b3
@@ -809,76 +932,204 @@
 								font-size: 12px
 								color: #b93535
 
+		.v-calendar-weekly__day
+			padding: 12px 12px 8px 12px
+			&.disable
+				background-color: #f7fafc
+				.appointment.green .appointment-btn-span
+					background-color: #e7f8f7 !important
+				.appointment.red .appointment-btn-span
+					background-color: #FDEFEF !important
+				.appointment .appointment-btn-text
+					color: #bdc8ce
+			
+			.v-event:not(:nth-last-child(2))
+				margin-bottom: 20px !important
+
+
+@media screen and (max-width: 768px)
+	.dashboard.v-2
+		// -------------- dashboard-filter --------------
+		> .dashboard-filter
+			.input 
+				max-width: 128px
+
+		// -------------- dashboard-tab --------------
+		> .dashboard-tab
+			.dashboard-tab-heading
+				display: none
+			.dashboard-tab-body
+				padding-top: unset
+				padding-left: unset
+				padding-right: unset
+				&-item
+					&:first-child
+						padding-top: 10px
+						border-top: 1px solid #BDC8CE
+					&:not(:last-child)
+						padding-bottom: 16px
+						margin-bottom: 10px
+						border-bottom: 1px solid #BDC8CE
+			.dashboard-tab-heading-sp
+				display: flex
+
+		// -------------- dashboard-tab --------------		
+		.dashboard-key
+			display: block
+			.heading
+				margin-bottom: 8px
+			.item:not(:last-child)
+				margin-right: unset
+
+		// -------------- dashboard-card-item --------------		
+		.dashboard-card-item
+			.card-header
+				.row-box
+					display: block
+					.col-box:first-child
+						margin-right: unset
+						margin-bottom: 8px
+				&-row
+					&:first-child
+						display: block 
+					.card-header-col:last-child
+						margin-bottom: 10px
+				.status
+					&-list
+						gap: 4px 16px
+					&-item
+						display: flex
+						:not(:last-child)
+							margin-right: 12px
+						&-header
+							margin-bottom: unset
+							margin-right: 4px
+					&-item-body
+						min-width: unset
+						width: 16px
+						height: 16px
+						font-size: 16px
+						.material-icons
+							font-size: 14px
+			.card-body
+				.people
+					display: block
+					&-item
+						max-width: 100%
+						&:not(:last-child)
+						margin-bottom: 4px
+
+		// -------------- dashboard-calendar --------------	
+		.dashboard-calendar
+			// -------------- dashboard-btn-date -------------- 
+			.btn-date
+				width: 22px
+				height: 22px
+				margin: 0 auto
+				&-notify
+					.v-icon
+						font-size: 12px
+
+			// -------------- dashboard-appointment -------------- 
+			.appointment
+				&-btn
+					margin-bottom: 2px
+					&-span
+						width: 100%
+						margin-right: unset
+						border-radius: 4px
+					&-text
+						display: none
+				&-content
+					&.has-notify
+						padding: 2px 4px
+						.appointment-content-icon
+							display: none
+					&-link 
+						.text
+							color: #101b21
+							&::before
+								display: none
+							&:last-child
+								display: none
+							span:not(:first-child)
+								display: none
+			.v-calendar-weekly__day
+				padding: 4px 2px
+				.v-event:not(:nth-last-child(2))
+					margin-bottom: 8px !important
+
+
 
 // -------------- custom-calendar -------------- 	
+.dashboard.v-2
+	.v-calendar .v-event
+		width: 100% !important
+		background-color: unset !important
+		color: #000 !important
+
+	.v-calendar-weekly__head
+		.v-calendar-weekly__head-weekday
+			height: max-content
+			padding-top: 12px
+			padding-left: 12px
+			padding-bottom: 8px
+			text-align-last: left
+			background-color: #E0F0FC !important
+			border-bottom: 1px solid #e0e0e0
+		.v-calendar-weekly__head-weekday:not(:last-child)
+			border-right: 1px solid #BDC8CE
+
+	.v-calendar-weekly__day-label
+		margin-top: unset
+		margin-bottom: 8px
+		text-align: left
+
+	.v-calendar.v-calendar-events 
+		.v-calendar-weekly__day
+			margin-right: unset
+		.v-calendar-weekly__head-weekday
+			margin-right: unset
+
+	.theme--light.v-calendar-weekly 
+		.v-calendar-weekly__head-weekday
+			color: #111a1e
+			&.v-past
+				color: #111a1e
+		.v-calendar-weekly__day.v-outside
+			background-color: #bdc8ce
+			// .theme--light.v-btn
+			// 	color: #667177
+
+	// .v-btn--fab.v-size--small
+	// 	display: flex
+	// 	align-items: center
+	// 	justify-content: center
+	// 	width: 28px
+	// 	height: 28px
+	// 	font-size: 14px
+	// 	font-weight: 400
+
+	// .theme--light.v-btn.v-btn--has-bg.transparent
+	// 	color: #101b21
+	// 	&:hover
+
+
+	// .theme--light.v-btn.v-btn--has-bg
+	// 	background-color: #00528e
+	// 	color: #fff
+
+// @media screen and (max-width: 768px)
+// 	.dashboard.v-2
+// 		.dashboard-calendar	
+			
+		
+	
+// -------------- disable css vuetify -------------- 
 .v-application .green,
 .v-application .red
 	background-color: unset !important
 	border-color: unset !important
 
-.v-calendar .v-event
-	width: 100% !important
-	background-color: unset !important
-	color: #000 !important
-
-.v-calendar-weekly__day
-	padding: 12px 12px 8px 12px
-	&.disable
-		background-color: #f7fafc
-		.appointment.green .appointment-btn-span
-			background-color: #e7f8f7 !important
-		.appointment.red .appointment-btn-span
-			background-color: #FDEFEF !important
-		.appointment .appointment-btn-text
-			color: #bdc8ce
-	  
-	.v-event
-		&:not(:nth-last-child(2))
-			margin-bottom: 20px !important
-
-.v-calendar-weekly__head-weekday
-	height: max-content
-	padding-top: 12px
-	padding-left: 12px
-	padding-bottom: 8px
-	text-align-last: left
-	background-color: #E0F0FC !important
-.v-calendar-weekly__head
-	border-bottom: 1px solid #e0e0e0
-	.v-calendar-weekly__head-weekday:not(:last-child)
-		border-right: 1px solid #BDC8CE
-
-.v-calendar.v-calendar-events 
-	.v-calendar-weekly__day
-		margin-right: unset
-	.v-calendar-weekly__head-weekday
-		margin-right: unset
-
-.theme--light.v-calendar-weekly .v-calendar-weekly__head-weekday
-	color: #111a1e
-	&.v-past
-		color: #111a1e
-
-.theme--light.v-calendar-weekly .v-calendar-weekly__day.v-outside
-	background-color: #bdc8ce
-	.theme--light.v-btn
-		color: #667177
-
-.v-calendar-weekly__day-label
-	margin-top: unset
-	margin-bottom: 8px
-	text-align: left
-
-.v-btn--fab.v-size--small
-	display: flex
-	align-items: center
-	justify-content: center
-	width: 28px
-	height: 28px
-	font-size: 14px
-	font-weight: 400
-
-.theme--light.v-btn.v-btn--has-bg
-	// background-color: #00528e
-	// color: #fff
-
+.v-application p
+	margin-bottom: unset
