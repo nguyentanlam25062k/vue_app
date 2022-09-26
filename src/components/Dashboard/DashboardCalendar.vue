@@ -14,14 +14,13 @@
             @click:day="onViewDay"
             type="custom-weekly"
         >
-            <!-- <template v-slot:day-header="{date}">
-                <div class="xxxxxxx">{{ date }}</div>
-                <div class="xxxxxxx">xxxxxxxxxxxxx</div>
-            </template> -->
             <template v-slot:day-label="{ day }">
-                <div class="btn-date">
+                <div class="btn-date"
+                    :class="{ 'has-notify': showDayLabel(day) }"
+                >
                     <div class="btn-date-notify">
                         <v-icon>info</v-icon>
+                        <!-- <span class="icon-notice"></span> -->
                     </div>
                     <div class="btn-date-numb">{{ day }}</div>
                 </div>
@@ -67,7 +66,9 @@
             onViewDay: Function
         },
         data() {
-            return {}
+            return {
+                dayLabels: [3, 4, 5, 6]
+            }
         },
         methods: {
             colorFormat(e) {
@@ -88,6 +89,9 @@
                 };
                 return dayMap[weekday];
             },
+            showDayLabel(day) {
+                return this.dayLabels.includes(day);
+            }
         }
     }
 </script>

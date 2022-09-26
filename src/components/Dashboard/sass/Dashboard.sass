@@ -862,6 +862,9 @@
 				&.active
 					color: #fff
 					background-color: #00528e
+				&.has-notify
+					.btn-date-notify
+						display: block
 				&:hover
 					color: #fff
 					background-color: #00528e
@@ -869,6 +872,7 @@
 					position: absolute
 					top: -7px
 					right: -5px
+					display: none
 					.v-icon
 						font-size: 14px
 						color: #b93535
@@ -1029,6 +1033,9 @@
 				&-notify
 					.v-icon
 						font-size: 12px
+				&-numb
+					font-size: 12px
+					line-height: 12px
 
 			// -------------- dashboard-appointment -------------- 
 			.appointment
