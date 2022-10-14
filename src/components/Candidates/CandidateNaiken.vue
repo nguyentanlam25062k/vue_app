@@ -1,8 +1,8 @@
 <template>
     <div class="candidates-item naiken"
-        :class="{ 'has-warning': hasWarning }"
+        :class="{ 'has-warning': warning.hasWarning }"
     >
-        <div class="candidates-item-warning" v-if="hasWarning">この物件は現在予約を受付けていません</div>
+        <div class="candidates-item-warning" v-if="warning.message">この物件は現在予約を受付けていません</div>
         <div class="candidates-item-wrap">
             <div class="candidates-item-left">
                 <label class="candidates-checkbox">
@@ -19,15 +19,15 @@
                 <div class="candidates-item-heading">
                     <div class="reason">
                         <div class="reason-box">内見専用物件</div>
-                        <div class="reason-box">{物件種別}</div>
+                        <div class="reason-box">{{ candidate.house_classification }}</div>
                     </div>
                     <div class="address">
                         <div class="address-icon">
                             <span class="icon-pin"></span>
                         </div>
-                        <div class="address-text">{所在地}</div>
+                        <div class="address-text">{{ candidate.address }}</div>
                     </div>
-                    <div class="house-name">{建物名}</div>
+                    <div class="house-name">{{ candidate.name }}</div>
                     <div class="company">
                         <div class="company-box">予約受付会社</div>
                         <div class="company-name">予約受付会社名</div>
@@ -38,22 +38,24 @@
                         <div class="c-row">
                             <div class="c-col">
                                 <div class="house">
-                                    <div class="house-number">{号棟番号}{区画番号}{部屋番号}</div>
+                                    <div class="house-number">{{ candidate.block }}={{ candidate.room }}-{{ candidate.lot }}</div>
                                     <div class="house-row">
                                         <div class="house-price">
                                             <div class="house-price-box">賃料/価格(最新)</div>
-                                            <div class="house-price-text">9.0万円</div>
+                                            <div class="house-price-text">{{ candidate.price }}</div>
                                         </div>
-                                        <div class="house-preview">
+                                        <div class="house-preview"
+                                            :class="{ 'disable' : !takePicture.isActive }"
+                                        >
                                             <div class="house-preview-box">写真撮影内見</div>
-                                            <div class="house-preview-text">可</div>
+                                            <div class="house-preview-text">{{ takePicture.message }}</div>
                                             <div class="house-preview-icon">
                                                 <span class="icon-check"></span>
                                             </div>
                                         </div>
                                         <div class="house-id-number">
                                             <div class="house-id-number-box">案内予約物件台帳番号</div>
-                                            <div class="house-id-number-text">0000000000</div>
+                                            <div class="house-id-number-text">{{ candidate.address }}</div>
                                         </div>
                                     </div>  
                                     <div class="house-view-time">
@@ -76,7 +78,9 @@
                                     </div>
                                     <div class="setting-item">
                                         <div class="setting-item-text">鍵情報</div>
-                                        <div class="setting-item-box disable">
+                                        <div class="setting-item-box"
+                                            :class="{ 'disable' : !isActiveIconChecked }"
+                                        >
                                             <span class="icon-check"></span>
                                         </div>
                                     </div>
@@ -103,10 +107,37 @@
         props: {
             candidate: Object,
             checkeds: Array,
-            hasWarning: {
-                type: Boolean,
-                default: false
+        },
+        computed: {
+            warning() {
+                let hasWarning = false, message = '';
+
+                if (this.candidate.deleted_at !== null) {
+                    hasWarning = true;
+                    message = `この物件は削除されました`;
+                }
+
+                if (this.candidate.setting_info.is_appointment == 0) {
+                    hasWarning = true;
+                    message = `この物件は現在予約を受付けていません`;
+                }
+            
+                return { message, hasWarning };
             },
+            takePicture() {
+                let isActive = false, message = `不可`;
+                
+                if (this.candidate.setting_info.is_take_pictures) {
+                    isActive = true;
+                    message = `可`
+                }
+                
+                return { isActive, message };
+            },
+            isActiveIconChecked() {
+                return this.candidate.is_key_info;
+            }
         }
     }
 </script>
+
