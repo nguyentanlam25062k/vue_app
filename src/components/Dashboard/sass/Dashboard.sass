@@ -10,6 +10,60 @@
 // @import "./TabHeading.sass"
 
 .dashboard.v-2
+	.dashboard-uncompleted-card-item-pc
+		.card-heading
+			display: flex
+			margin-bottom: 8px
+			background-color: #e0f0fc
+			&-item
+				font-size: 14px
+				line-height: 22px
+				padding: 12px 24px 8px 12px
+				&:nth-child(1)
+					width: 200px
+				&:nth-child(2)
+					width: 200px
+				&:nth-child(3)
+					width: 320px
+				&:nth-child(4)
+					width: 160px
+		.card-body
+			&-list
+				display: flex
+				border: 1px solid #BDC8CE
+				border-left: 4px solid #1D6BB7
+				&:not(:last-child)
+					margin-bottom: 8px
+			&-item
+				font-size: 14px
+				line-height: 22px
+				padding: 12px 24px 8px 12px
+				&:nth-child(1)
+					width: 200px
+				&:nth-child(2)
+					width: 200px
+				&:nth-child(3)
+					width: 320px
+				&:nth-child(4)
+					width: 160px
+				&:nth-child(5)
+					flex-shrink: 0
+					background-color: #f7fafc
+				&-link
+					color: #1d6bb7
+					position: relative
+					cursor: pointer
+					&::before
+						content: ''
+						position: absolute
+						bottom: 2px
+						left: 0
+						height: 1px
+						width: 100%
+						background-color: #1d6bb7
+
+
+.dashboard.v-2
 	// -------------- dashboard-notify -------------- 
 	> .dashboard-notify
 		display: flex
